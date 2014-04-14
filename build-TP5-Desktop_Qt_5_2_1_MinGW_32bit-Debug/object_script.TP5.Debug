@@ -1,0 +1,15 @@
+INPUT(
+./debug\GamePiece.o
+./debug\GameWindow.o
+./debug\main.o
+./debug\NewGameWindow.o
+./debug\PageRules.o
+./debug\HelpWindow.o
+./debug\PageCredentials.o
+./debug\moc_GamePiece.o
+./debug\moc_GameWindow.o
+./debug\moc_NewGameWindow.o
+./debug\moc_PageRules.o
+./debug\moc_HelpWindow.o
+./debug\moc_PageCredentials.o
+);

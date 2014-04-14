@@ -1,0 +1,15 @@
+INPUT(
+./release\GamePiece.o
+./release\GameWindow.o
+./release\main.o
+./release\NewGameWindow.o
+./release\PageRules.o
+./release\HelpWindow.o
+./release\PageCredentials.o
+./release\moc_GamePiece.o
+./release\moc_GameWindow.o
+./release\moc_NewGameWindow.o
+./release\moc_PageRules.o
+./release\moc_HelpWindow.o
+./release\moc_PageCredentials.o
+);
