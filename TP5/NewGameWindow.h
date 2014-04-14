@@ -4,12 +4,17 @@
 #include <QDialog>
 #include <QLineEdit>
 #include <QSpinBox>
+#include <QString>
 
 class NewGameWindow : public QDialog
 {
 	Q_OBJECT
 public:
 	NewGameWindow(QWidget *parent = 0);
+    QString getJoueur1();
+    QString getJoueur2();
+    int getTempsMax();
+
 private slots:
     void quitClicked();
     void debuterClicked();

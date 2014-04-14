@@ -26,7 +26,7 @@ NewGameWindow::NewGameWindow(QWidget *parent) : QDialog(parent)
     QPushButton * annulerBtn = new QPushButton("Annuler", parent);
 
     connect(annulerBtn, SIGNAL(clicked()),this, SLOT(quitClicked()));
-    onnect(debuterPartieBtn, SIGNAL(clicked()),this, SLOT(debuterClicked());
+    connect(debuterPartieBtn, SIGNAL(clicked()),this, SLOT(debuterClicked()));
 
     QFormLayout * layout = new QFormLayout;
     layout->addRow(joueur1Tag, joueur1LE);
@@ -47,7 +47,22 @@ void NewGameWindow::quitClicked()
 
 void NewGameWindow::debuterClicked()
 {
-    if()
+    //if()
     //stuff a faire
     QCoreApplication::quit();
+}
+
+QString NewGameWindow::getJoueur1()
+{
+    return joueur1LE->text();
+}
+
+QString NewGameWindow::getJoueur2()
+{
+    return joueur2LE->text();
+}
+
+int NewGameWindow::getTempsMax()
+{
+    return tempsMaxSB->value();
 }
