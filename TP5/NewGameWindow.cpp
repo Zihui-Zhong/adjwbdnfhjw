@@ -37,3 +37,4 @@ NewGameWindow::NewGameWindow(QWidget *parent) : QDialog(parent)
     setWindowTitle(tr("Nouvelle Partie"));
 }
 
+

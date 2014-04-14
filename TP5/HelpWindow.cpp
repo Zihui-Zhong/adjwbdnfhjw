@@ -5,6 +5,7 @@
 #include <QTabWidget>
 #include <QVBoxLayout>
 #include <QPushButton>
+#include <QCoreApplication>
 
 
 HelpWindow::HelpWindow(QWidget *parent) : QDialog(parent)
@@ -27,9 +28,16 @@ HelpWindow::HelpWindow(QWidget *parent) : QDialog(parent)
     layout->addWidget(okBtn);
 
 
+    connect(okBtn, SIGNAL(clicked()),this, SLOT(quitClicked()));
+
     setWindowTitle(tr("Aide"));
     setLayout(layout);
 
     show();
 
+}
+
+void HelpWindow::quitClicked()
+{
+    QCoreApplication::quit();
 }

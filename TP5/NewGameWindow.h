@@ -8,6 +8,7 @@ class NewGameWindow : public QDialog
 	Q_OBJECT
 public:
 	NewGameWindow(QWidget *parent = 0);
+
 };
 
 #endif //FENETRE_NOUVELLE_PARTIE_
