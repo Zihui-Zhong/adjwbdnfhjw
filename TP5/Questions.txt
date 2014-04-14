@@ -1,0 +1,4 @@
+Les pointeurs intelligents sont un type de structure de data qui simule un pointeur normale avec plusieurs fonctionnalités de plus, l'un d'entre elles est la délocalisation automatique des mémoire, enlèvant du fait la nécéssité des deletes.
+
+
+Qt possède les classes pour permettre l'utilisation des pointeurs intelligents mais ne l'utilise pas réellement lui-même pour ses objets car ce n'est pas nécéssaire, chaque objet n'as qu'un seul parents et aucun erreurs ne peux s'introduires avec le partage d'un objets entre plusieurs autres.
