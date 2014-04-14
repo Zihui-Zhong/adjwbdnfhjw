@@ -11,6 +11,7 @@
 using namespace std;
 
 #include "GamePiece.h"
+#include "NewGameWindow.h"
 
 QT_BEGIN_NAMESPACE
 class QLineEdit;
@@ -32,6 +33,8 @@ private slots:
 	void restartClicked();
 	void helpClicked();
     void updateTempsRestant();
+  void debutPartie(QString nom1,QString nom2, int nbMinutes);
+
 
 private:
     bool player1Turn_;
@@ -52,6 +55,7 @@ private:
     QVBoxLayout * buttonLayout_;
     QVBoxLayout * mainLayout_;
     QGridLayout * gridLayout_;
+
 
     bool moveIsValid(int column) const;
     int countPiecesInColumn(int column) const;

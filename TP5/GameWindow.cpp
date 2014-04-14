@@ -10,6 +10,8 @@
 #include "GamePiece.h"
 #include "GameWindow.h"
 #include "NewGameWindow.h"
+#include "HelpWindow.h"
+
 
 GameWindow::GameWindow(QWidget *parent): QWidget(parent), player1Turn_(true), isGamePlaying_(false)
 {
@@ -54,6 +56,7 @@ GameWindow::GameWindow(QWidget *parent): QWidget(parent), player1Turn_(true), is
     connect(quit, SIGNAL(clicked()),this, SLOT(quitClicked()) ) ;
     connect(newGame,SIGNAL(clicked()),this,SLOT(newGameClicked()));
     connect(restart_,SIGNAL(clicked()),this,SLOT(restartClicked()));
+    connect(help,SIGNAL(clicked()),this,SLOT(helpClicked()));
     maxGameTime_=1000;
 
     // Info Layout
@@ -95,6 +98,7 @@ GameWindow::GameWindow(QWidget *parent): QWidget(parent), player1Turn_(true), is
     setLayout(mainLayout_);
     // Ajout du titre de la  fenetre
     setWindowTitle(tr("Puissance 4"));
+
 }
 
 void GameWindow::gridClicked()
@@ -147,16 +151,22 @@ void GameWindow::gridClicked()
 
 void GameWindow::newGameClicked()
 {
-    player1name_->setText("Alice");
-    player2name_->setText("Bob");
-    currentTime_=maxGameTime_;
+    NewGameWindow* a = new NewGameWindow(this);
+
+    connect(a,SIGNAL(debut(QString,QString,int)),this,SLOT(debutPartie(QString,QString,int)));
+
+
+    a->exec();
+
+}
+void GameWindow::debutPartie(QString nom1,QString nom2, int nbMinutes){
+    player1name_->setText(nom1);
+    player2name_->setText(nom2);
+    maxGameTime_=nbMinutes*60;
     reinitialisation();
     isGamePlaying_=true;
     restart_->setEnabled(true);
     timer_->start();
-
-    // Logique lorsqu'on appuie sur le bouton nouvelle partie - À FAIRE
-    // ...
 }
 
 void GameWindow::quitClicked()
@@ -175,10 +185,6 @@ void GameWindow::quitClicked()
 void GameWindow::restartClicked()
 {
     timer_->stop();
-
-
-
-    timer_->stop();
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this, "Recommencer?", "Recommencer?",QMessageBox::Yes|QMessageBox::No);
     if (reply == QMessageBox::Yes) {
@@ -195,8 +201,9 @@ void GameWindow::restartClicked()
 
 void GameWindow::helpClicked()
 {
-    // Logique lorsqu'on appuie sur le bouton aide - À FAIRE
-    // ...
+
+    HelpWindow help(this);
+    help.exec();
 }
 
 void GameWindow::updateTempsRestant() {

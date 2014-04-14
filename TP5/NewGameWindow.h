@@ -5,15 +5,15 @@
 #include <QLineEdit>
 #include <QSpinBox>
 #include <QString>
-
+#include <string>
 class NewGameWindow : public QDialog
 {
 	Q_OBJECT
 public:
 	NewGameWindow(QWidget *parent = 0);
-    QString getJoueur1();
-    QString getJoueur2();
-    int getTempsMax();
+signals:
+    void debut(QString nom1,QString nom2, int nbMinutes);
+
 
 private slots:
     void quitClicked();

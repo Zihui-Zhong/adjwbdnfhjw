@@ -39,5 +39,5 @@ HelpWindow::HelpWindow(QWidget *parent) : QDialog(parent)
 
 void HelpWindow::quitClicked()
 {
-    QCoreApplication::quit();
+    this->close();
 }

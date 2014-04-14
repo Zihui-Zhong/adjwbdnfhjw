@@ -42,27 +42,12 @@ NewGameWindow::NewGameWindow(QWidget *parent) : QDialog(parent)
 
 void NewGameWindow::quitClicked()
 {
-    QCoreApplication::quit();
+    this->close();
 }
 
 void NewGameWindow::debuterClicked()
 {
-    //if()
-    //stuff a faire
-    QCoreApplication::quit();
-}
+    emit debut(joueur1LE->text(),joueur2LE->text(),tempsMaxSB->value());
 
-QString NewGameWindow::getJoueur1()
-{
-    return joueur1LE->text();
-}
-
-QString NewGameWindow::getJoueur2()
-{
-    return joueur2LE->text();
-}
-
-int NewGameWindow::getTempsMax()
-{
-    return tempsMaxSB->value();
+    this->close();
 }
