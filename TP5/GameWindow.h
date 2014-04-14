@@ -59,6 +59,7 @@ private:
     Player checkWin() const;
     bool checkDraw() const;
     void reinitialisation();
+    void messageRecommencer();
 };
 
 
